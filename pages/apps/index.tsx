@@ -18,29 +18,26 @@ export default function Apps({
       <Head>
         <title>Flathub—An app store and build service for Linux</title>
       </Head>
-      <div className='applications-collection'>
+      <div className='applications-collection main-container'>
         <div className='collection'>
-          <ApplicationSection
-            key='updated'
-            title='New & Updated Apps'
-            applications={recentlyUpdated}
-            href='/apps/collection/recently-updated'
-          />
-
           <ApplicationSection
             key='popular'
             title='Popular Apps'
             applications={popular}
             href='/apps/collection/popular'
           />
-
+          <ApplicationSection
+            key='updated'
+            title='New & Updated Apps'
+            applications={recentlyUpdated}
+            href='/apps/collection/recently-updated'
+          />
           <ApplicationSection
             key='editor_choice'
             title="Editor's Choice Apps"
             applications={editorsChoiceApps}
             href='/apps/collection/editors-choice-apps'
           />
-
           <ApplicationSection
             key='editor_choice_games'
             title="Editor's Choice Games"
@@ -55,7 +52,7 @@ export default function Apps({
 
 export const getStaticProps: GetStaticProps = async () => {
   const recentlyUpdated = await fetchCollection(
-    Collections.recenltyUpdated,
+    Collections.recentlyUpdated,
     APPS_IN_PREVIEW_COUNT
   )
   const editorsChoiceApps = await fetchCollection(
